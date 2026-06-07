@@ -88,9 +88,13 @@
   background: var(--bg-surface);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
-  padding: 12px 14px;
+  padding: 14px 16px;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+}
+
+.match-page__keyword:active {
+  transform: scale(0.99);
 }
 
 .match-page__keyword:hover {

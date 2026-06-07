@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ManaFontLoader } from "./components/Mana.jsx";
+import Navbar from "./components/Navbar.jsx";
 import { T } from "./data/translations.js";
-import { PAGES, PAGE_ICONS } from "./constants/navigation.js";
 import MatchPage from "./pages/MatchPage.jsx";
 import CardTypesPage from "./pages/CardTypesPage.jsx";
 import CommanderPage from "./pages/CommanderPage.jsx";
@@ -13,6 +13,10 @@ export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState("match");
   const t = T[lang];
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [page]);
 
   const pageMap = {
     match: <MatchPage lang={lang} />,
@@ -26,41 +30,7 @@ export default function App() {
   return (
     <div className="app">
       <ManaFontLoader />
-
-      <header className="app-header">
-        <div className="app-logo">
-          <div className="app-logo__mark">✦</div>
-          <div>
-            <div className="app-logo__title">MTG Reference</div>
-            <div className="app-logo__subtitle">New Player Guide</div>
-          </div>
-        </div>
-        <div className="lang-toggle">
-          {["en", "it"].map((l) => (
-            <button
-              key={l}
-              className={lang === l ? "active" : ""}
-              onClick={() => setLang(l)}
-            >
-              {l === "en" ? "🇬🇧 EN" : "🇮🇹 IT"}
-            </button>
-          ))}
-        </div>
-      </header>
-
-      <nav className="app-nav">
-        <div className="app-nav__inner">
-          {PAGES.map((p) => (
-            <button
-              key={p}
-              className={`nav-tab ${page === p ? "active" : ""}`}
-              onClick={() => setPage(p)}
-            >
-              {PAGE_ICONS[p]} {t.nav[p]}
-            </button>
-          ))}
-        </div>
-      </nav>
+      <Navbar page={page} setPage={setPage} lang={lang} setLang={setLang} labels={t.nav} />
 
       <main className="app-content">{pageMap[page]}</main>
 
