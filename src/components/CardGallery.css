@@ -1,0 +1,24 @@
+.card-gallery {
+  overflow-x: auto;
+  margin-top: 14px;
+}
+
+.card-gallery__track {
+  display: flex;
+  gap: 10px;
+  padding: 0 4px 12px;
+  min-width: fit-content;
+}
+
+.card-gallery__item {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.card-gallery__label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  max-width: 130px;
+  line-height: 1.3;
+}

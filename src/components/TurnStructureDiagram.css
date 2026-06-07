@@ -1,0 +1,195 @@
+.turn-diagram {
+  margin-top: 4px;
+}
+
+.turn-diagram__hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.turn-diagram__scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 0 -4px;
+  padding: 4px;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-subtle);
+}
+
+.turn-diagram__svg {
+  display: block;
+  min-width: 100%;
+  height: auto;
+}
+
+.turn-diagram__banner-text {
+  fill: #e2e8f0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-family: var(--font-body);
+}
+
+.turn-diagram__phase-bg {
+  fill: color-mix(in srgb, var(--phase-color) 8%, transparent);
+  stroke: color-mix(in srgb, var(--phase-color) 35%, transparent);
+  stroke-width: 1;
+}
+
+.turn-diagram__phase-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  font-family: var(--font-body);
+}
+
+.turn-diagram__connector line,
+.turn-diagram__connector polygon {
+  stroke: rgba(148, 163, 184, 0.5);
+  fill: rgba(148, 163, 184, 0.5);
+}
+
+.turn-diagram__connector--inner line,
+.turn-diagram__connector--inner polygon {
+  stroke: color-mix(in srgb, var(--phase-color, #94a3b8) 50%, #475569);
+  fill: color-mix(in srgb, var(--phase-color, #94a3b8) 50%, #475569);
+}
+
+.turn-diagram__step {
+  cursor: pointer;
+}
+
+.turn-diagram__step-rect {
+  fill: rgba(15, 23, 42, 0.85);
+  stroke: rgba(255, 255, 255, 0.12);
+  stroke-width: 1;
+  transition: fill 0.15s, stroke 0.15s;
+}
+
+.turn-diagram__step:hover .turn-diagram__step-rect {
+  fill: rgba(30, 41, 59, 0.95);
+  stroke: color-mix(in srgb, var(--phase-color) 60%, white);
+}
+
+.turn-diagram__step--active .turn-diagram__step-rect {
+  fill: color-mix(in srgb, var(--phase-color) 22%, #0f172a);
+  stroke: var(--phase-color);
+  stroke-width: 2;
+}
+
+.turn-diagram__step-text {
+  fill: #e2e8f0;
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  pointer-events: none;
+}
+
+.turn-diagram__step--active .turn-diagram__step-text {
+  fill: #fff;
+  font-weight: 700;
+}
+
+.turn-diagram__loop {
+  stroke: rgba(129, 140, 248, 0.35);
+  stroke-width: 1.5;
+}
+
+.turn-diagram__loop-text {
+  fill: var(--text-muted);
+  font-size: 9px;
+  font-weight: 600;
+  font-family: var(--font-body);
+}
+
+.turn-diagram__detail {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-radius: var(--radius-md);
+  background: rgba(99, 102, 241, 0.06);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  min-height: 88px;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.turn-diagram__detail--visible {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.08);
+}
+
+.turn-diagram__detail-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.turn-diagram__detail-phase {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+}
+
+.turn-diagram__detail-step {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.turn-diagram__detail-desc {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.turn-diagram__detail-placeholder {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 12px 0;
+}
+
+.turn-diagram__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  justify-content: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.turn-diagram__legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.turn-diagram__legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .turn-diagram__scroll {
+    overflow-x: visible;
+  }
+
+  .turn-diagram__svg {
+    width: 100%;
+  }
+}

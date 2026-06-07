@@ -1,0 +1,7 @@
+@import "./styles/theme.css";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}

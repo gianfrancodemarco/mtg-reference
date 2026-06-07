@@ -1,0 +1,141 @@
+.match-page__stack-example {
+  margin-top: 14px;
+  background: rgba(99, 102, 241, 0.07);
+  border: 1px solid rgba(99, 102, 241, 0.18);
+  border-radius: var(--radius-md);
+  padding: 16px;
+}
+
+.match-page__stack-title {
+  font-weight: 700;
+  color: #a5b4fc;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.match-page__stack-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.match-page__stack-actor {
+  background: rgba(99, 102, 241, 0.13);
+  color: #818cf8;
+  border-radius: var(--radius-sm);
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+  min-width: 72px;
+  text-align: center;
+}
+
+.match-page__stack-action {
+  color: var(--text-primary);
+  font-size: 13px;
+  flex: 1;
+}
+
+.match-page__stack-pile {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.match-page__stack-item {
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.match-page__stack-item--top {
+  background: rgba(99, 102, 241, 0.2);
+  color: #a5b4fc;
+}
+
+.match-page__stack-item--rest {
+  background: #1e293b;
+  color: var(--text-secondary);
+}
+
+.match-page__mulligan {
+  padding-left: 20px;
+  margin: 10px 0 0;
+  color: var(--text-secondary);
+}
+
+.match-page__mulligan li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.match-page__keywords {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.match-page__keyword {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.match-page__keyword:hover {
+  background: var(--bg-surface-hover);
+}
+
+.match-page__keyword--open {
+  background: rgba(99, 102, 241, 0.08);
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.match-page__keyword-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.match-page__keyword-symbol {
+  font-size: 22px;
+  flex-shrink: 0;
+  width: 30px;
+  text-align: center;
+}
+
+.match-page__keyword-name {
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 15px;
+}
+
+.match-page__keyword-def {
+  color: var(--text-secondary);
+  font-size: 13px;
+  margin-top: 3px;
+  line-height: 1.5;
+}
+
+.match-page__keyword-card {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.match-page__empty {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 20px;
+}
