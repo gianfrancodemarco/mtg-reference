@@ -15,17 +15,29 @@ export default function MatchPage({ lang }) {
   const stacks = STACK_EXAMPLES[lang];
   const mulligan = MULLIGAN[lang];
   const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
   const [expandedKw, setExpandedKw] = useState(null);
+
+  const categoryLabels = lang === "en"
+    ? { all: "All", combat: "Combat", evasion: "Evasion", protection: "Protection", casting: "Casting", cost: "Cost", alternate: "Alternate cast", trigger: "Triggers", landwalk: "Landwalk", cycling: "Cycling", mechanic: "Mechanics" }
+    : { all: "Tutte", combat: "Combattimento", evasion: "Evasione", protection: "Protezione", casting: "Lancio", cost: "Costo", alternate: "Lancio alternativo", trigger: "Innesco", landwalk: "Passa-terra", cycling: "Ciclo", mechanic: "Meccaniche" };
+
+  const categories = useMemo(() => {
+    const set = new Set(keywords.map((k) => k.category).filter(Boolean));
+    return ["all", ...[...set].sort()];
+  }, [keywords]);
+
   const filtered = useMemo(
     () =>
       [...keywords]
         .sort((a, b) => a.name.localeCompare(b.name))
+        .filter((k) => category === "all" || k.category === category)
         .filter(
           (k) =>
             k.name.toLowerCase().includes(search.toLowerCase()) ||
             k.def.toLowerCase().includes(search.toLowerCase())
         ),
-    [keywords, search]
+    [keywords, search, category]
   );
 
   return (
@@ -86,7 +98,10 @@ export default function MatchPage({ lang }) {
         </ol>
       </Accordion>
 
-      <Accordion title={lang === "en" ? "Keywords A–Z" : "Parole Chiave A–Z"} icon="🔤">
+      <Accordion
+        title={`${lang === "en" ? "Keywords A–Z" : "Parole Chiave A–Z"} (${keywords.length})`}
+        icon="🔤"
+      >
         <input
           type="text"
           className="input-search"
@@ -95,6 +110,18 @@ export default function MatchPage({ lang }) {
           onChange={(e) => setSearch(e.target.value)}
           style={{ marginTop: 10, marginBottom: 12 }}
         />
+        <div className="match-page__kw-filters">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              type="button"
+              className={`match-page__kw-filter ${category === cat ? "match-page__kw-filter--active" : ""}`}
+              onClick={() => setCategory(cat)}
+            >
+              {categoryLabels[cat] || cat}
+            </button>
+          ))}
+        </div>
         <div className="match-page__keywords">
           {filtered.map((kw) => (
             <div

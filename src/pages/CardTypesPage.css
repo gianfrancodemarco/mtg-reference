@@ -1,0 +1,29 @@
+.card-types__section-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 24px 0 8px;
+}
+
+.card-types__subtype-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.card-types__subtype-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: #cbd5e1;
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.card-types__search {
+  margin-top: 10px;
+  margin-bottom: 12px;
+}

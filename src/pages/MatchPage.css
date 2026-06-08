@@ -77,6 +77,36 @@
   line-height: 1.55;
 }
 
+.match-page__kw-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.match-page__kw-filter {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.match-page__kw-filter:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.match-page__kw-filter--active {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.35);
+  color: var(--text-primary);
+}
+
 .match-page__keywords {
   display: flex;
   flex-direction: column;

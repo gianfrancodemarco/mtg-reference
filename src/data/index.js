@@ -3,6 +3,7 @@ export { KEYWORDS } from "./keywords.js";
 export { STACK_EXAMPLES } from "./stackExamples.js";
 export { MULLIGAN } from "./mulligan.js";
 export { CARD_TYPES } from "./cardTypes.js";
+export { CARD_SUBTYPES } from "./cardSubtypes.js";
 export { COLORS } from "./colors.js";
 export { COLOR_PAIRS } from "./colorPairs.js";
 export { ARCHETYPES } from "./archetypes.js";
