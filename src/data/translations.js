@@ -1,6 +1,6 @@
 export const T = {
   en: {
-    nav: { match: "Match", cards: "Card Types", formats: "Formats", colors: "Colors", archetypes: "Archetypes", tribes: "Tribes" },
+    nav: { match: "Match", cards: "Card Types", anatomy: "Anatomy", formats: "Formats", farming: "Farming", colors: "Colors", archetypes: "Archetypes", tribes: "Tribes" },
     match: { title: "Match Guide", subtitle: "Everything you need during a game" },
     colors: {
       title: "The Color Pie",
@@ -25,12 +25,20 @@ export const T = {
     cardsSections: { core: "Card Types", supertypes: "Supertypes", composites: "Composite Types", subtypes: "Subtypes by Category" },
     cardsSearch: "Search types, subtypes, descriptions…",
     cardsNoResults: "No card types match your search.",
+    anatomy: {
+      title: "Card Anatomy & Rarities",
+      subtitle: "Every part of the card frame, special layouts, and rarity tiers",
+      referenceCard: "Reference card",
+    },
+    anatomySearch: "Search anatomy, rarities, frames…",
+    anatomyNoResults: "No anatomy topics match your search.",
     formats: { title: "Magic Formats", subtitle: "Constructed, Limited, Commander, and more" },
+    farming: { title: "Arena Farming Guide", subtitle: "Earn gold and gems to draft for free" },
     formatsSearch: "Search formats…",
     search: "Search keywords…",
   },
   it: {
-    nav: { match: "Partita", cards: "Tipi di carta", formats: "Formati", colors: "Colori", archetypes: "Archetipi", tribes: "Tribù" },
+    nav: { match: "Partita", cards: "Tipi di carta", anatomy: "Anatomia", formats: "Formati", farming: "Farming", colors: "Colori", archetypes: "Archetipi", tribes: "Tribù" },
     match: { title: "Guida alla partita", subtitle: "Tutto ciò che ti serve durante una partita" },
     colors: {
       title: "La ruota dei colori",
@@ -55,7 +63,15 @@ export const T = {
     cardsSections: { core: "Tipi di carta", supertypes: "Supertipi", composites: "Tipi composti", subtypes: "Sottotipi per categoria" },
     cardsSearch: "Cerca tipi, sottotipi, descrizioni…",
     cardsNoResults: "Nessun tipo di carta corrisponde alla ricerca.",
+    anatomy: {
+      title: "Anatomia della carta e rarità",
+      subtitle: "Ogni zona del frame, layout speciali e livelli di rarità",
+      referenceCard: "Carta di riferimento",
+    },
+    anatomySearch: "Cerca anatomia, rarità, cornici…",
+    anatomyNoResults: "Nessun argomento corrisponde alla ricerca.",
     formats: { title: "Formati Magic", subtitle: "Constructed, Limitato, Commander e altri" },
+    farming: { title: "Guida al farming su Arena", subtitle: "Guadagna oro e gemme per draftare gratis" },
     formatsSearch: "Cerca formati…",
     search: "Cerca parole chiave…",
   },

@@ -1,0 +1,150 @@
+.anatomy__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 24px;
+  padding: 20px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+}
+
+@media (min-width: 640px) {
+  .anatomy__hero {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 28px;
+  }
+}
+
+.anatomy__hero-card {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.anatomy__hero-label {
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.anatomy__intro {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.anatomy__section-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin: 24px 0 8px;
+}
+
+.anatomy__search {
+  margin-bottom: 16px;
+}
+
+.anatomy__location {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: 6px;
+  color: #a5b4fc;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding: 4px 10px;
+}
+
+.anatomy__rarity-meta {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 480px) {
+  .anatomy__rarity-meta {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.anatomy__meta-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.anatomy__meta-label {
+  color: #475569;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+}
+
+.anatomy__meta-value {
+  color: #cbd5e1;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.anatomy__symbol-swatch {
+  align-items: center;
+  border-radius: 50%;
+  display: inline-flex;
+  height: 14px;
+  justify-content: center;
+  margin-right: 6px;
+  vertical-align: middle;
+  width: 14px;
+}
+
+.anatomy__symbol-swatch--common {
+  background: #1e293b;
+  border: 2px solid #64748b;
+}
+
+.anatomy__symbol-swatch--uncommon {
+  background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+  border: 1px solid #cbd5e1;
+}
+
+.anatomy__symbol-swatch--rare {
+  background: linear-gradient(135deg, #fde047, #ca8a04);
+  border: 1px solid #eab308;
+}
+
+.anatomy__symbol-swatch--mythic {
+  background: linear-gradient(135deg, #fb923c, #c2410c);
+  border: 1px solid #f97316;
+}
+
+.anatomy__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+}
+
+.anatomy__legend-item {
+  align-items: center;
+  color: #94a3b8;
+  display: flex;
+  font-size: 12px;
+  gap: 6px;
+}
