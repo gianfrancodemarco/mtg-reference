@@ -88,55 +88,125 @@ function DetailPanel({ activeStep, lang }) {
 }
 
 function TurnTimelineMobile({ phases, lang, activeKey, onSelect }) {
+  const [phaseIndex, setPhaseIndex] = useState(0);
+  const phase = phases[phaseIndex];
+
+  function selectPhase(index) {
+    setPhaseIndex(index);
+    onSelect(null, null, null);
+  }
+
+  function goPrev() {
+    if (phaseIndex > 0) selectPhase(phaseIndex - 1);
+  }
+
+  function goNext() {
+    if (phaseIndex < phases.length - 1) selectPhase(phaseIndex + 1);
+  }
+
+  if (!phase) return null;
+
   return (
     <div className="turn-timeline">
       <div className="turn-timeline__banner">
         {lang === "en" ? "Active player's turn" : "Turno del giocatore attivo"}
       </div>
 
-      {phases.map((phase, pi) => (
-        <section key={phase.id} className="turn-timeline__phase">
-          <div
-            className="turn-timeline__phase-head"
-            style={{ "--phase-color": phase.color }}
+      <div className="turn-timeline__progress" aria-hidden="true">
+        {phases.map((p, i) => (
+          <span
+            key={p.id}
+            className={`turn-timeline__progress-dot ${i === phaseIndex ? "turn-timeline__progress-dot--active" : ""} ${i < phaseIndex ? "turn-timeline__progress-dot--done" : ""}`}
+            style={{ "--phase-color": p.color }}
+          />
+        ))}
+      </div>
+
+      <div className="turn-timeline__phase-nav" role="tablist" aria-label={lang === "en" ? "Turn phases" : "Fasi del turno"}>
+        {phases.map((p, i) => (
+          <button
+            key={p.id}
+            type="button"
+            role="tab"
+            aria-selected={i === phaseIndex}
+            className={`turn-timeline__phase-chip ${i === phaseIndex ? "turn-timeline__phase-chip--active" : ""}`}
+            style={{ "--phase-color": p.color }}
+            onClick={() => selectPhase(i)}
           >
-            <span className="turn-timeline__phase-icon">{phase.icon}</span>
+            <span className="turn-timeline__phase-chip-icon">{p.icon}</span>
+            <span className="turn-timeline__phase-chip-label">{p.label}</span>
+          </button>
+        ))}
+      </div>
+
+      <section className="turn-timeline__phase" aria-label={phase.label}>
+        <div className="turn-timeline__phase-head" style={{ "--phase-color": phase.color }}>
+          <span className="turn-timeline__phase-icon">{phase.icon}</span>
+          <div className="turn-timeline__phase-head-text">
             <span className="turn-timeline__phase-label">{phase.label}</span>
             <span className="turn-timeline__phase-count">
-              {phase.steps.length} {lang === "en" ? (phase.steps.length === 1 ? "step" : "steps") : (phase.steps.length === 1 ? "passo" : "passi")}
+              {lang === "en" ? `Phase ${phaseIndex + 1} of ${phases.length}` : `Fase ${phaseIndex + 1} di ${phases.length}`}
             </span>
           </div>
+        </div>
 
-          <div className="turn-timeline__steps">
-            {phase.steps.map((step, si) => {
-              const key = `${phase.id}-${si}`;
-              const isActive = activeKey === key;
-              return (
+        <div className="turn-timeline__steps">
+          {phase.steps.map((step, si) => {
+            const key = `${phase.id}-${si}`;
+            const isActive = activeKey === key;
+            return (
+              <div key={key} className="turn-timeline__step-group">
                 <button
-                  key={key}
                   type="button"
                   className={`turn-timeline__step ${isActive ? "turn-timeline__step--active" : ""}`}
                   style={{ "--phase-color": phase.color }}
                   onClick={() => onSelect(isActive ? null : key, phase, step)}
+                  aria-expanded={isActive}
                 >
                   <span className="turn-timeline__step-index">{si + 1}</span>
                   <span className="turn-timeline__step-name">{step.name}</span>
+                  <span className="turn-timeline__step-chevron" aria-hidden="true">
+                    {isActive ? "▴" : "▾"}
+                  </span>
                 </button>
-              );
-            })}
-          </div>
+                {isActive && (
+                  <div className="turn-timeline__step-detail" style={{ "--phase-color": phase.color }}>
+                    <p>{step.desc}</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
-          {pi < phases.length - 1 && (
-            <div className="turn-timeline__between" aria-hidden="true">
-              <span className="turn-timeline__arrow">↓</span>
-            </div>
-          )}
-        </section>
-      ))}
+      <div className="turn-timeline__pager">
+        <button
+          type="button"
+          className="turn-timeline__pager-btn"
+          onClick={goPrev}
+          disabled={phaseIndex === 0}
+        >
+          ← {lang === "en" ? "Previous" : "Precedente"}
+        </button>
+        <span className="turn-timeline__pager-label">
+          {phase.icon} {phase.label}
+        </span>
+        <button
+          type="button"
+          className="turn-timeline__pager-btn"
+          onClick={goNext}
+          disabled={phaseIndex === phases.length - 1}
+        >
+          {lang === "en" ? "Next" : "Successiva"} →
+        </button>
+      </div>
 
-      <p className="turn-timeline__loop">
-        {lang === "en" ? "↻ Then the next player's turn begins" : "↻ Poi inizia il turno del prossimo giocatore"}
-      </p>
+      {phaseIndex === phases.length - 1 && (
+        <p className="turn-timeline__loop">
+          {lang === "en" ? "↻ Then the next player's turn begins" : "↻ Poi inizia il turno del prossimo giocatore"}
+        </p>
+      )}
     </div>
   );
 }

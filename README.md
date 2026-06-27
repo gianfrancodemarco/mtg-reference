@@ -37,9 +37,9 @@ A bilingual (English / Italian) new-player guide for Magic: The Gathering. Cover
         ├── ArchetypesPage.jsx
         ├── CardTypesPage.jsx
         ├── ColorsPage.jsx
-        ├── CommanderPage.jsx
+        ├── FormatsPage.jsx
         ├── MatchPage.jsx
-        └── PairsPage.jsx
+        └── TribesPage.jsx
 ```
 
 ## Getting started

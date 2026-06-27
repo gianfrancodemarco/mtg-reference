@@ -1,0 +1,110 @@
+.formats-page__category-intro {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  margin-bottom: 14px;
+  padding: 14px 16px;
+}
+
+.formats-page__category-intro-title {
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.formats-page__category-intro-desc {
+  color: #94a3b8;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.formats-page__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 16px;
+}
+
+.formats-page__filter {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 10px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.formats-page__filter:hover {
+  background: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.formats-page__filter--active {
+  background: rgba(234, 179, 8, 0.12);
+  border-color: rgba(234, 179, 8, 0.35);
+  color: var(--text-primary);
+}
+
+.formats-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 10px;
+}
+
+.formats-page__meta-item {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #cbd5e1;
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.formats-page__details {
+  color: #94a3b8;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.formats-page__details li {
+  margin-bottom: 4px;
+}
+
+.formats-page__commander-banner {
+  background: rgba(234, 179, 8, 0.07);
+  border: 1px solid rgba(234, 179, 8, 0.22);
+  border-radius: 14px;
+  color: #fde68a;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 24px 0 12px;
+  padding: 14px;
+}
+
+.formats-page__section-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  margin: 28px 0 8px;
+  text-transform: uppercase;
+}
+
+.formats-page__note {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  color: #a5b4fc;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+}

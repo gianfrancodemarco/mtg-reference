@@ -4,10 +4,10 @@ import Navbar from "./components/Navbar.jsx";
 import { T } from "./data/translations.js";
 import MatchPage from "./pages/MatchPage.jsx";
 import CardTypesPage from "./pages/CardTypesPage.jsx";
-import CommanderPage from "./pages/CommanderPage.jsx";
+import FormatsPage from "./pages/FormatsPage.jsx";
 import ColorsPage from "./pages/ColorsPage.jsx";
-import PairsPage from "./pages/PairsPage.jsx";
 import ArchetypesPage from "./pages/ArchetypesPage.jsx";
+import TribesPage from "./pages/TribesPage.jsx";
 
 export default function App() {
   const [lang, setLang] = useState("en");
@@ -21,10 +21,10 @@ export default function App() {
   const pageMap = {
     match: <MatchPage lang={lang} />,
     cards: <CardTypesPage lang={lang} />,
-    formats: <CommanderPage lang={lang} />,
+    formats: <FormatsPage lang={lang} />,
     colors: <ColorsPage lang={lang} />,
-    pairs: <PairsPage lang={lang} />,
     archetypes: <ArchetypesPage lang={lang} />,
+    tribes: <TribesPage lang={lang} />,
   };
 
   return (

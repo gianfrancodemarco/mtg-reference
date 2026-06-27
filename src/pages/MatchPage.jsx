@@ -5,7 +5,7 @@ import ScryfallCard from "../components/ScryfallCard.jsx";
 import SectionHeader from "../components/SectionHeader.jsx";
 import TurnStructureDiagram from "../components/TurnStructureDiagram.jsx";
 import { T } from "../data/translations.js";
-import { PHASES, KEYWORDS, STACK_EXAMPLES, MULLIGAN } from "../data/index.js";
+import { PHASES, KEYWORDS, STACK_EXAMPLES, SETUP, MULLIGAN } from "../data/index.js";
 import "./MatchPage.css";
 
 export default function MatchPage({ lang }) {
@@ -13,6 +13,7 @@ export default function MatchPage({ lang }) {
   const phases = PHASES[lang];
   const keywords = KEYWORDS[lang];
   const stacks = STACK_EXAMPLES[lang];
+  const setup = SETUP[lang];
   const mulligan = MULLIGAN[lang];
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
@@ -90,7 +91,17 @@ export default function MatchPage({ lang }) {
         ))}
       </Accordion>
 
+      <Accordion title={setup.title} icon={setup.icon}>
+        {setup.note && <p className="match-page__mulligan-note">{setup.note}</p>}
+        <ol className="match-page__mulligan">
+          {setup.steps.map((s, i) => (
+            <li key={i}>{s}</li>
+          ))}
+        </ol>
+      </Accordion>
+
       <Accordion title={mulligan.title} icon={mulligan.icon}>
+        {mulligan.note && <p className="match-page__mulligan-note">{mulligan.note}</p>}
         <ol className="match-page__mulligan">
           {mulligan.steps.map((s, i) => (
             <li key={i}>{s}</li>

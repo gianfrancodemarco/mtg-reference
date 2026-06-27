@@ -22,11 +22,16 @@ export default function ScryfallCard({ name, lang = "en", style: extraStyle = {}
     setDisplayName(name);
     setOpen(false);
 
-    fetchCardImages(name, lang).then((result) => {
-      if (cancelled) return;
-      setImages(result);
-      setDisplayName(result.displayName);
-    });
+    fetchCardImages(name, lang)
+      .then((result) => {
+        if (cancelled) return;
+        setImages(result);
+        setDisplayName(result.displayName);
+      })
+      .catch(() => {
+        if (cancelled) return;
+        setStatus("err");
+      });
 
     return () => {
       cancelled = true;

@@ -1,10 +1,10 @@
-export const PAGES = ["match", "cards", "formats", "colors", "pairs", "archetypes"];
+export const PAGES = ["match", "cards", "formats", "colors", "archetypes", "tribes"];
 
 export const PAGE_ICONS = {
   match: "🎮",
   cards: "🃏",
-  formats: "👑",
+  formats: "🏆",
   colors: "🌈",
-  pairs: "🤝",
   archetypes: "🧩",
+  tribes: "🦁",
 };

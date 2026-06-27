@@ -65,6 +65,18 @@
   color: var(--text-secondary);
 }
 
+.match-page__mulligan-note {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 10px;
+  color: #a5b4fc;
+  font-size: 12px;
+  line-height: 1.5;
+  margin-top: 10px;
+  margin-bottom: 12px;
+  padding: 10px 12px;
+}
+
 .match-page__mulligan {
   padding-left: 20px;
   margin: 10px 0 0;
