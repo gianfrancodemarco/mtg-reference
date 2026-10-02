@@ -1,7 +1,7 @@
-import { PAGES, PAGE_ICONS } from "../constants/navigation.js";
+import { PAGES, PAGE_ICONS, PAUPER_PAGES, PAUPER_PAGE_ICONS } from "../constants/navigation.js";
 import "./Navbar.css";
 
-export default function Navbar({ page, setPage, lang, setLang, labels }) {
+export default function Navbar({ page, setPage, lang, setLang, labels, pauperPage, setPauperPage, pauperLabels }) {
   return (
     <>
       <header className="navbar">
@@ -44,6 +44,22 @@ export default function Navbar({ page, setPage, lang, setLang, labels }) {
             </button>
           ))}
         </nav>
+
+        {page === "pauper" && (
+          <nav className="navbar__sub" aria-label="Pauper">
+            {PAUPER_PAGES.map((id) => (
+              <button
+                key={id}
+                type="button"
+                className={`navbar__sub-tab ${pauperPage === id ? "navbar__sub-tab--active" : ""}`}
+                onClick={() => setPauperPage(id)}
+              >
+                <span aria-hidden="true">{PAUPER_PAGE_ICONS[id]}</span>
+                <span>{pauperLabels[id]}</span>
+              </button>
+            ))}
+          </nav>
+        )}
       </header>
 
       <nav className="navbar__mobile" aria-label="Main">

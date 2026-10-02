@@ -10,21 +10,24 @@ import ColorsPage from "./pages/ColorsPage.jsx";
 import ArchetypesPage from "./pages/ArchetypesPage.jsx";
 import TribesPage from "./pages/TribesPage.jsx";
 import FarmingPage from "./pages/FarmingPage.jsx";
+import PauperPage from "./pages/PauperPage.jsx";
 
 export default function App() {
   const [lang, setLang] = useState("en");
   const [page, setPage] = useState("match");
+  const [pauperPage, setPauperPage] = useState("meta");
   const t = T[lang];
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [page]);
+  }, [page, pauperPage]);
 
   const pageMap = {
     match: <MatchPage lang={lang} />,
     cards: <CardTypesPage lang={lang} />,
     anatomy: <CardAnatomyPage lang={lang} />,
     formats: <FormatsPage lang={lang} />,
+    pauper: <PauperPage lang={lang} subpage={pauperPage} setSubpage={setPauperPage} />,
     farming: <FarmingPage lang={lang} />,
     colors: <ColorsPage lang={lang} />,
     archetypes: <ArchetypesPage lang={lang} />,
@@ -34,7 +37,16 @@ export default function App() {
   return (
     <div className="app">
       <ManaFontLoader />
-      <Navbar page={page} setPage={setPage} lang={lang} setLang={setLang} labels={t.nav} />
+      <Navbar
+        page={page}
+        setPage={setPage}
+        lang={lang}
+        setLang={setLang}
+        labels={t.nav}
+        pauperPage={pauperPage}
+        setPauperPage={setPauperPage}
+        pauperLabels={t.pauper.pages}
+      />
 
       <main className="app-content">{pageMap[page]}</main>
 

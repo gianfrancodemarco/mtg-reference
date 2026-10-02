@@ -21,15 +21,23 @@ function getImageUris(card) {
 
 async function scryfallFetch(url) {
   return enqueue(async () => {
-    const res = await fetch(url, {
-      headers: {
-        Accept: "application/json",
-        "User-Agent": "mtg-reference/1.0",
-      },
-    });
-    await sleep(API_DELAY_MS);
-    if (!res.ok) return null;
-    return res.json();
+    for (let attempt = 0; attempt < 5; attempt++) {
+      const res = await fetch(url, {
+        headers: {
+          Accept: "application/json",
+          "User-Agent": "mtg-reference/1.0",
+        },
+      });
+      if (res.status === 429 || res.status === 503) {
+        const retryAfter = Number(res.headers.get("Retry-After"));
+        await sleep(Number.isFinite(retryAfter) && retryAfter > 0 ? retryAfter * 1000 : 500 * (attempt + 1));
+        continue;
+      }
+      await sleep(API_DELAY_MS);
+      if (!res.ok) return null;
+      return res.json();
+    }
+    return null;
   });
 }
 
@@ -88,7 +96,12 @@ export async function fetchCardImages(name, lang) {
   })();
 
   cache.set(key, promise);
-  return promise;
+  try {
+    return await promise;
+  } catch (err) {
+    cache.delete(key);
+    throw err;
+  }
 }
 
 export function clearScryfallCache() {

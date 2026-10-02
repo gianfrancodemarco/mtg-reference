@@ -15,3 +15,4 @@ export { TRIBES } from "./tribes.js";
 export { COMMANDER_RULES } from "./commanderRules.js";
 export { FORMATS, FORMAT_CATEGORIES, FORMAT_CATEGORY_INFO, CATEGORY_ORDER } from "./formats.js";
 export { FARMING } from "./farming.js";
+export { PAUPER, PAUPER_DECK_CARDS, PAUPER_MATCHUP_CARDS } from "./pauper.js";

@@ -1,6 +1,6 @@
 export const T = {
   en: {
-    nav: { match: "Match", cards: "Card Types", anatomy: "Anatomy", formats: "Formats", farming: "Farming", colors: "Colors", archetypes: "Archetypes", tribes: "Tribes" },
+    nav: { match: "Match", cards: "Card Types", anatomy: "Anatomy", formats: "Formats", pauper: "Pauper", farming: "Farming", colors: "Colors", archetypes: "Archetypes", tribes: "Tribes" },
     match: { title: "Match Guide", subtitle: "Everything you need during a game" },
     colors: {
       title: "The Color Pie",
@@ -33,12 +33,19 @@ export const T = {
     anatomySearch: "Search anatomy, rarities, frames…",
     anatomyNoResults: "No anatomy topics match your search.",
     formats: { title: "Magic Formats", subtitle: "Constructed, Limited, Commander, and more" },
+    pauper: {
+      title: "Pauper",
+      subtitle: "The current commons metagame",
+      pages: { meta: "Metagame", madness: "Mono Red Madness" },
+      madnessTitle: "Mono Red Madness",
+      madnessSubtitle: "How your list wins, and how to sideboard it",
+    },
     farming: { title: "Arena Farming Guide", subtitle: "Earn gold and gems to draft for free" },
     formatsSearch: "Search formats…",
     search: "Search keywords…",
   },
   it: {
-    nav: { match: "Partita", cards: "Tipi di carta", anatomy: "Anatomia", formats: "Formati", farming: "Farming", colors: "Colori", archetypes: "Archetipi", tribes: "Tribù" },
+    nav: { match: "Partita", cards: "Tipi di carta", anatomy: "Anatomia", formats: "Formati", pauper: "Pauper", farming: "Farming", colors: "Colori", archetypes: "Archetipi", tribes: "Tribù" },
     match: { title: "Guida alla partita", subtitle: "Tutto ciò che ti serve durante una partita" },
     colors: {
       title: "La ruota dei colori",
@@ -71,6 +78,13 @@ export const T = {
     anatomySearch: "Cerca anatomia, rarità, cornici…",
     anatomyNoResults: "Nessun argomento corrisponde alla ricerca.",
     formats: { title: "Formati Magic", subtitle: "Constructed, Limitato, Commander e altri" },
+    pauper: {
+      title: "Pauper",
+      subtitle: "Il metagame attuale dei comuni",
+      pages: { meta: "Metagame", madness: "Mono Red Madness" },
+      madnessTitle: "Mono Red Madness",
+      madnessSubtitle: "Come vince la tua lista e come sidebordarla",
+    },
     farming: { title: "Guida al farming su Arena", subtitle: "Guadagna oro e gemme per draftare gratis" },
     formatsSearch: "Cerca formati…",
     search: "Cerca parole chiave…",
